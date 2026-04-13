@@ -1,42 +1,21 @@
 import { ExternalLink, Github, Clock } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
-  {
-    title: "E-Commerce Platform",
-    desc: "A modern e-commerce application with real-time inventory, payments, and admin dashboard.",
-    tags: ["React", "Node.js", "PostgreSQL"],
-  },
-  {
-    title: "AI Chat Application",
-    desc: "An intelligent chatbot interface powered by machine learning with natural language processing.",
-    tags: ["Next.js", "Python", "OpenAI"],
-  },
-  {
-    title: "Task Management App",
-    desc: "A collaborative project management tool with real-time updates and team features.",
-    tags: ["TypeScript", "Firebase", "Tailwind"],
-  },
-  {
-    title: "Portfolio Generator",
-    desc: "A tool that helps developers create stunning portfolio websites in minutes.",
-    tags: ["React", "Framer Motion", "MDX"],
-  },
-  {
-    title: "Health & Fitness Tracker",
-    desc: "A mobile-first fitness tracking application with charts, goals, and social features.",
-    tags: ["React Native", "GraphQL", "MongoDB"],
-  },
-  {
-    title: "Social Media Dashboard",
-    desc: "An analytics dashboard for managing and tracking social media performance across platforms.",
-    tags: ["Vue.js", "D3.js", "Express"],
-  },
+  { title: "E-Commerce Platform", desc: "A modern e-commerce application with real-time inventory, payments, and admin dashboard.", tags: ["React", "Node.js", "PostgreSQL"] },
+  { title: "AI Chat Application", desc: "An intelligent chatbot interface powered by machine learning with natural language processing.", tags: ["Next.js", "Python", "OpenAI"] },
+  { title: "Task Management App", desc: "A collaborative project management tool with real-time updates and team features.", tags: ["TypeScript", "Firebase", "Tailwind"] },
+  { title: "Portfolio Generator", desc: "A tool that helps developers create stunning portfolio websites in minutes.", tags: ["React", "Framer Motion", "MDX"] },
+  { title: "Health & Fitness Tracker", desc: "A mobile-first fitness tracking application with charts, goals, and social features.", tags: ["React Native", "GraphQL", "MongoDB"] },
+  { title: "Social Media Dashboard", desc: "An analytics dashboard for managing and tracking social media performance across platforms.", tags: ["Vue.js", "D3.js", "Express"] },
 ];
 
 const ProjectsSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="projects" className="section-padding bg-card/50">
-      <div className="container mx-auto">
+      <div ref={ref} className={`container mx-auto scroll-reveal ${isVisible ? "visible" : ""}`}>
         <h2 className="text-3xl md:text-4xl font-bold mb-3">
           My <span className="text-gradient">Projects</span>
         </h2>
@@ -48,9 +27,9 @@ const ProjectsSection = () => {
           {projects.map((project, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5"
+              className="group rounded-xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 scroll-reveal-child"
+              style={{ transitionDelay: `${0.1 * (i + 1)}s` }}
             >
-              {/* Placeholder image */}
               <div className="h-44 bg-secondary flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-primary opacity-10" />
                 <div className="flex flex-col items-center gap-2 text-muted-foreground">
