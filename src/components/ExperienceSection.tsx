@@ -1,3 +1,5 @@
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const experiences = [
   {
     title: "Senior Full-Stack Developer",
@@ -20,21 +22,21 @@ const experiences = [
 ];
 
 const ExperienceSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="section-padding">
-      <div className="container mx-auto">
+      <div ref={ref} className={`container mx-auto scroll-reveal ${isVisible ? "visible" : ""}`}>
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
           <span className="text-gradient">Experience</span>
         </h2>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-border" />
 
           <div className="space-y-10">
             {experiences.map((exp, i) => (
-              <div key={i} className="relative pl-12 md:pl-16">
-                {/* Dot */}
+              <div key={i} className="relative pl-12 md:pl-16 scroll-reveal-child" style={{ transitionDelay: `${0.15 * (i + 1)}s` }}>
                 <div className="absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full bg-gradient-primary ring-4 ring-background" />
 
                 <div className="p-6 rounded-lg bg-card border border-border hover:border-primary/30 transition-colors">
