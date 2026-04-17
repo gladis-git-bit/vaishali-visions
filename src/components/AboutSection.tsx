@@ -1,47 +1,60 @@
-import { Code2, Palette, Zap } from "lucide-react";
+import { Code2, Palette, Zap, Heart } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const highlights = [
-  { icon: Code2, label: "Clean Code", desc: "Writing efficient, maintainable solutions" },
-  { icon: Palette, label: "Design Eye", desc: "Pixel-perfect, user-centered interfaces" },
-  { icon: Zap, label: "Fast Delivery", desc: "Agile approach with rapid iteration" },
+  { icon: Code2, label: "clean code", desc: "efficient, maintainable, kinda poetic", color: "bg-primary/20 text-primary" },
+  { icon: Palette, label: "design eye", desc: "pixel-perfect, soft on the soul", color: "bg-pop/20 text-pop" },
+  { icon: Zap, label: "fast delivery", desc: "agile but never rushed", color: "bg-accent/30 text-accent-foreground" },
+  { icon: Heart, label: "good vibes", desc: "kindness ships better products", color: "bg-sage/30 text-sage-foreground" },
 ];
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="about" className="section-padding">
-      <div ref={ref} className={`container mx-auto scroll-reveal ${isVisible ? "visible" : ""}`}>
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">
-          About <span className="text-gradient">Me</span>
+    <section id="about" className="section-padding relative overflow-hidden">
+      <div className="blob w-[400px] h-[400px] top-10 -right-20 bg-primary/20" />
+
+      <div ref={ref} className={`container mx-auto relative z-10 scroll-reveal ${isVisible ? "visible" : ""}`}>
+        <div className="flex items-baseline gap-3 mb-3">
+          <span className="font-script text-2xl text-pop">a little</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— 01</span>
+        </div>
+        <h2 className="font-serif text-4xl md:text-6xl mb-16">
+          about <span className="italic text-gradient">me</span>
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed text-lg scroll-reveal-child" style={{ transitionDelay: "0.1s" }}>
-              I'm a passionate creative developer and designer with over <span className="text-foreground font-medium">5 years of experience</span> building 
-              digital products that make a difference. I believe in the power of clean, efficient code and thoughtful design.
+        <div className="grid md:grid-cols-5 gap-10 items-start">
+          <div className="md:col-span-3 space-y-6">
+            <p className="leading-relaxed text-xl text-foreground/80 scroll-reveal-child" style={{ transitionDelay: "0.1s" }}>
+              i'm a creative developer + designer with <span className="text-pop font-medium">5+ years</span> of
+              shipping digital things that feel like a warm hug. i live for the moment a clunky idea
+              becomes something soft, useful, and a little bit magical.
             </p>
             <p className="text-muted-foreground leading-relaxed scroll-reveal-child" style={{ transitionDelay: "0.2s" }}>
-              My expertise spans the full stack — from crafting pixel-perfect frontends to building robust, scalable backends. 
-              I love turning complex problems into simple, elegant solutions.
+              full-stack means i'm at home in the messy backend and the dreamy frontend — turning
+              complex problems into simple, beautiful flows. i care about typography, micro-animations,
+              and what happens between the clicks.
             </p>
-            <p className="text-muted-foreground leading-relaxed italic border-l-2 border-primary pl-4 scroll-reveal-child" style={{ transitionDelay: "0.3s" }}>
-              When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, or speaking at conferences.
-            </p>
+            <div className="glass rounded-3xl p-6 scroll-reveal-child" style={{ transitionDelay: "0.3s" }}>
+              <p className="font-script text-2xl text-foreground/80">
+                "the best interfaces feel like a friend handing you exactly what you need." ✨
+              </p>
+            </div>
           </div>
 
-          <div className="grid gap-4">
-            {highlights.map(({ icon: Icon, label, desc }, i) => (
-              <div key={label} className="flex items-start gap-4 p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-colors scroll-reveal-child" style={{ transitionDelay: `${0.15 * (i + 1)}s` }}>
-                <div className="p-2 rounded-md bg-gradient-primary text-primary-foreground shrink-0">
-                  <Icon size={20} />
+          <div className="md:col-span-2 grid grid-cols-2 gap-3">
+            {highlights.map(({ icon: Icon, label, desc, color }, i) => (
+              <div
+                key={label}
+                className="glass rounded-3xl p-5 hover-lift scroll-reveal-child"
+                style={{ transitionDelay: `${0.15 * (i + 1)}s` }}
+              >
+                <div className={`w-10 h-10 rounded-2xl ${color} flex items-center justify-center mb-3`}>
+                  <Icon size={18} />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{label}</h3>
-                  <p className="text-sm text-muted-foreground">{desc}</p>
-                </div>
+                <h3 className="font-medium text-foreground mb-1 text-sm">{label}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
