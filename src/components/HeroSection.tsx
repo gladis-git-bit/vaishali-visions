@@ -1,33 +1,77 @@
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Sparkles, Star } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center section-padding pt-32" style={{ backgroundImage: "var(--gradient-hero)" }}>
-      <div className="container mx-auto">
-        <div className="max-w-3xl">
-          <p className="text-accent font-medium mb-4 animate-fade-in-up">Hello World 👋</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            Hey!, I am <span className="text-gradient">Vaishali</span>
-          </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            Full-Stack Developer
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            I craft beautiful, functional digital experiences by bringing ideas to life. Specializing in modern web development and user-centered design.
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center section-padding pt-36 overflow-hidden bg-gradient-hero"
+    >
+      {/* Floating blobs */}
+      <div className="blob blob-animate w-[420px] h-[420px] -top-20 -left-20 bg-pop/40" />
+      <div className="blob blob-animate w-[500px] h-[500px] top-40 -right-32 bg-primary/30" style={{ animationDelay: "-6s" }} />
+      <div className="blob blob-animate w-[360px] h-[360px] bottom-0 left-1/3 bg-accent/40" style={{ animationDelay: "-12s" }} />
+
+      {/* Decorative stickers */}
+      <div className="hidden md:block absolute top-32 right-16 animate-float">
+        <div className="sticker rotate-6">
+          <Star size={12} className="text-pop fill-pop" />
+          designer + dev
+        </div>
+      </div>
+      <div className="hidden md:block absolute bottom-32 left-12 animate-float" style={{ animationDelay: "-2s" }}>
+        <div className="sticker -rotate-6">
+          <Sparkles size={12} className="text-primary" />
+          based in the cloud ☁️
+        </div>
+      </div>
+
+      <div className="container mx-auto relative z-10">
+        <div className="max-w-4xl">
+          <p className="font-script text-3xl md:text-4xl text-pop mb-2 animate-fade-in-up">
+            hi, lovelies ♡
           </p>
-          <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <h1
+            className="font-serif text-5xl md:text-7xl lg:text-8xl mb-4 animate-fade-in-up leading-[1.05]"
+            style={{ animationDelay: "0.1s" }}
+          >
+            i'm <span className="text-gradient italic">Vaishali</span>
+            <br />
+            <span className="relative inline-block">
+              <span className="squiggle-underline">a full-stack</span>
+            </span>{" "}
+            <span className="marquee-text">dreamer.</span>
+          </h1>
+          <p
+            className="text-muted-foreground text-lg md:text-xl max-w-xl mt-8 mb-10 leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            i build soft, thoughtful, lovable web experiences — somewhere between code, color
+            theory, and a really good playlist.
+          </p>
+          <div
+            className="flex flex-wrap gap-4 animate-fade-in-up"
+            style={{ animationDelay: "0.4s" }}
+          >
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity glow-primary"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full bg-foreground text-background font-medium hover:bg-pop transition-all duration-500 hover:-translate-y-0.5 shadow-card"
             >
-              View My Work <ArrowRight size={18} />
+              peek my work
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-colors"
+              className="group inline-flex items-center gap-2 px-7 py-4 rounded-full glass text-foreground font-medium hover:bg-white transition-all duration-500 hover:-translate-y-0.5"
             >
-              Get In Touch <Mail size={18} />
+              say hi <Mail size={18} className="text-pop" />
             </a>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 mt-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <span className="text-xs uppercase tracking-widest text-muted-foreground mr-2">currently</span>
+            <span className="sticker">🎧 lo-fi loops</span>
+            <span className="sticker">📚 design systems</span>
+            <span className="sticker">🌸 spring drops</span>
           </div>
         </div>
       </div>

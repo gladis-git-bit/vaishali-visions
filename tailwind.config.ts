@@ -7,14 +7,16 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.25rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["Inter", "sans-serif"],
+        serif: ["DM Serif Display", "serif"],
+        script: ["Caveat", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -25,6 +27,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -42,6 +45,14 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        sage: {
+          DEFAULT: "hsl(var(--sage))",
+          foreground: "hsl(var(--sage-foreground))",
+        },
+        pop: {
+          DEFAULT: "hsl(var(--pop))",
+          foreground: "hsl(var(--pop-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -53,8 +64,8 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 6px)",
+        sm: "calc(var(--radius) - 12px)",
       },
       keyframes: {
         "accordion-down": {
@@ -71,14 +82,19 @@ export default {
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-12px)" },
+        },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
-        "float": "float 3s ease-in-out infinite",
+        "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "float": "float 5s ease-in-out infinite",
+        "spin-slow": "spin-slow 20s linear infinite",
       },
     },
   },
