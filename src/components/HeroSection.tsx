@@ -67,11 +67,13 @@ const HeroSection = () => {
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 mt-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <span className="text-xs uppercase tracking-widest text-muted-foreground mr-2">currently</span>
-            <span className="sticker">🎧 lo-fi loops</span>
-            <span className="sticker">📚 design systems</span>
-            <span className="sticker">🌸 spring drops</span>
+          <div className="mt-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">currently</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="sticker animate-float inline-flex">🎧 lo-fi loops</span>
+              <span className="sticker animate-float inline-flex" style={{ animationDelay: "-1.5s" }}>📚 design systems</span>
+              <span className="sticker animate-float inline-flex" style={{ animationDelay: "-3s" }}>🌸 spring drops</span>
+            </div>
           </div>
         </div>
       </div>
