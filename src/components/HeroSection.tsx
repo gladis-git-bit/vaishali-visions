@@ -12,16 +12,18 @@ const HeroSection = () => {
       <div className="blob blob-animate w-[360px] h-[360px] bottom-0 left-1/3 bg-accent/40" style={{ animationDelay: "-12s" }} />
 
       {/* Decorative stickers */}
-      <div className="hidden md:block absolute top-32 right-16 animate-float">
-        <div className="sticker rotate-6">
-          <Star size={12} className="text-pop fill-pop" />
-          designer + dev
+      <div className="hidden lg:flex absolute top-28 right-16 flex-col items-end gap-4 pointer-events-none">
+        <div className="animate-float">
+          <div className="sticker rotate-6">
+            <Star size={12} className="text-pop fill-pop" />
+            designer + dev
+          </div>
         </div>
-      </div>
-      <div className="hidden md:block absolute bottom-32 left-12 animate-float" style={{ animationDelay: "-2s" }}>
-        <div className="sticker -rotate-6">
-          <Sparkles size={12} className="text-primary" />
-          based in the cloud ☁️
+        <div className="animate-float" style={{ animationDelay: "-2s" }}>
+          <div className="sticker -rotate-6">
+            <Sparkles size={12} className="text-primary" />
+            based in the cloud ☁️
+          </div>
         </div>
       </div>
 
